@@ -134,6 +134,10 @@ window.onload = function () {
         container.appendChild(text);
         container.appendChild(removeBtn);
 
+        if(checkbox.checked){
+            done.appendChild(container);
+        }else{
         todosContainer.appendChild(container);
+        }
     }
 }
