@@ -1,0 +1,63 @@
+body{
+    margin: 0;
+    background-image: url("https://cdn.vox-cdn.com/thumbor/B_3i_xBuhlX_lq_WyKRA31YQwrM=/0x0:5760x3840/1820x1024/filters:focal(2420x1930:3340x2850):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/56578693/akrales_170907_1974_0026_02.1504880732.jpg")
+}
+
+.allpage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-todo{
+    display: flex;
+    margin-top: 3%;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 4%;
+
+}
+    
+.leftBox{
+    border: 5px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: aqua;
+    max-width: 10cm;
+    min-width: 10cm;
+    min-height: 15cm;
+    margin-right: 2cm;
+    align-items: center;
+        
+}
+.rightBox{
+    border: 5px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: aqua;
+    max-width: 10cm;
+    min-width: 10cm;
+    min-height: 15cm;
+    align-items: center;   
+}
+
+.todo{
+    display: flex;
+    border: 2px solid white;
+    border-radius: 2px;
+    padding: 1px;
+    margin-top: 5px;
+    background-color: thistle;
+}
+
+.removeBtn:hover, .addBtn:hover{
+    cursor: pointer;
+}
