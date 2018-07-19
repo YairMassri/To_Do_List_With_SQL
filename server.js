@@ -27,8 +27,8 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
-// app.use("/assets",express.static(__dirname + "/assets"));
 app.use("/",express.static(__dirname + "/front"));
+app.use("/",express.static(__dirname + "/images"));
 
 require('./routs')(app, database);
 

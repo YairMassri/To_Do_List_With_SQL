@@ -9,8 +9,8 @@ module.exports = function (app, database) {
     //     res.sendFile(path.join(__dirname,'todo.html'))
     //   });
     app.get('/', function (req, res) {
-        res.sendFile(path.join(__dirname,'views','index.html'))
-      });
+        res.sendFile(path.join(__dirname, 'views', 'index.html'))
+    });
 
     app.get('/get-todos', function (req, res) {
         database.query(
@@ -66,8 +66,28 @@ module.exports = function (app, database) {
     app.post('/update-todo', function (req, res) {
         let id = req.body.id;
         let complete = req.body.complete;
+        let donedatetime = complete ? moment().format('YYYY-MM-DD HH:mm:ss') : null;
+        
         database.query(
-            `UPDATE todos SET complete=${complete} WHERE id = ${id};`,
+            `UPDATE todos SET complete=${complete}, donedatetime = '${donedatetime}' WHERE id = ${id};`,
+            function (error, results, fields) {
+
+                if (error) throw error;
+
+                console.log('results >>>>>>>>>>>>>> ', results);
+
+                res.send({
+                    ...results,
+                    donedatetime: donedatetime
+                })
+            });
+    });
+
+    app.post('/edit-todo', function (req, res) {
+        let id = req.body.id;
+        let text = req.body.text;
+        database.query(
+            `UPDATE todos SET text='${text}' WHERE id = ${id};`,
             function (error, results, fields) {
 
                 if (error) throw error;
@@ -92,7 +112,7 @@ module.exports = function (app, database) {
     });
     app.put('/create-todo', function (req, res) {
         let text = req.body.text;
-        let created = moment().format('YYYY-MM-DD HH:mm Z');
+        let created = moment().format("YYYY-MM-DD HH:mm:ss");
         database.query(
             `INSERT INTO todos (text, created) VALUES ('${text}', '${created}');`,
             function (error, result, fields) {
