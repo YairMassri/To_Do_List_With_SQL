@@ -103,8 +103,12 @@ window.onload = function () {
         if (todo.complete > 0) {
             var t = todo.donedatetime.split(/[T]/);
             var d = t[0].split(/[-]/);
-            var f = d[1] + "/" + d[2] + "/" + d[0];
-            date.textContent = f;
+            var a = t[1].split(/[:]/);
+            var z = a[2].split(/[.]/);
+            var f = d[0] + "-" + d[1] + "-" + d[2];
+            var x = a[0];
+            var h = x + ":" + a[1] + ":" + z[0];
+            date.textContent = f + ' ' + ' ' +h;
         } else {
             date.textContent = '';
         }
@@ -198,32 +202,6 @@ window.onload = function () {
             console.log('check box ' + todo.id + ' click');
             console.log(checkbox.checked);
         }
-
-        // let format = {
-        //     date: (date) => {
-        //       let d = date.getDate();
-        //       let m = date.getMonth() + 1;
-        //       let y = date.getFullYear();
-
-        //       let h = date.getHours();
-
-        //       let hf = (h > 11) ? 'PM' : 'AM';
-        //       let hh = (h > 12) ? h % 12 : h;
-        //       let mm = date.getMinutes();
-        //       let ss = date.getSeconds();
-
-        //       if (d < 10) d = '0' + d;
-        //       if (m < 10) m = '0' + m;
-        //       if (hh < 10) hh = '0' + hh;
-        //       if (mm < 10) mm = '0' + mm;
-        //       if (ss < 10) ss = '0' + ss;
-
-        //       return {
-        //         date: m + '/' + d + '/' + y,
-        //         time: hh + ':' + mm + ':' + ss + ' ' + hf
-        //       };
-        //     }
-        //   }
 
         let removeBtn = document.createElement('button');
         removeBtn.id = "removeBtn-" + todo.id;

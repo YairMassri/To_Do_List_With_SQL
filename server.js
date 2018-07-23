@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3178
+const port = process.env.PORT || 8001
 const database = require('./db');
 
 app.use(express.urlencoded({extended: true}));
@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3178');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8001');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
